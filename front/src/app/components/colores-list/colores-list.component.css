@@ -1,0 +1,29 @@
+.table td {
+  text-align: center;
+}
+
+.table th {
+  text-align: center;
+}
+
+ngb-pagination ::ng-deep a {
+  color: white !important;
+}
+
+ngb-pagination ::ng-deep .page-item.active .page-link {
+  border-color: #565656;
+  background-color: #565656;
+}
+
+ngb-pagination ::ng-deep .page-item.active .page-link:focus,
+.page-link:not(:disabled):not(.disabled):active:focus {
+  box-shadow: 0 0 0 0.1rem dimgrey;
+}
+
+ngb-pagination ::ng-deep .page-link:not(:disabled):not(.disabled):active:focus {
+  box-shadow: 0 0 0 0.1rem dimgrey;
+}
+
+ngb-pagination ::ng-deep ul > li:not(.active) > a {
+  background-color: #262626 !important;
+}

@@ -20,7 +20,6 @@ export class AutosListComponent implements OnInit {
   public pageSize = 5;
   public maxSize = 5;
 
-
   constructor(
     private autosService: AutosService,
     public modalService: NgbModal
@@ -41,7 +40,7 @@ export class AutosListComponent implements OnInit {
     modalRef.componentInstance.detallar(auto);
     modalRef.closed.subscribe(() => {
       this.listar();
-    })
+    });
   }
 
   openModal(url: string) {

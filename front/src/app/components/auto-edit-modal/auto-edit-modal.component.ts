@@ -5,8 +5,8 @@ import { FormControl } from '@angular/forms';
 import { Auto } from 'src/app/models/Auto';
 import { AutosService } from 'src/app/services/autos.service';
 import { ModelosService } from 'src/app/services/modelos.service';
-import { Color } from '../../models/Color'
-import { Modelo } from '../../models/Modelo'
+import { Color } from '../../models/Color';
+import { Modelo } from '../../models/Modelo';
 import { ColoresService } from '../../services/colores.service';
 import Swal from 'sweetalert2';
 
@@ -16,70 +16,63 @@ import Swal from 'sweetalert2';
   styleUrls: ['./auto-edit-modal.component.css'],
 })
 export class AutoEditModalComponent implements OnInit {
-
   auto: Auto = {};
   @Input() public url: any;
 
-  colores: Color[] = []
-  modelos: Modelo[] = []
+  colores: Color[] = [];
+  modelos: Modelo[] = [];
 
   formdata!: FormGroup;
-
 
   constructor(
     private activeModal: NgbActiveModal,
     private autosService: AutosService,
     private coloresService: ColoresService,
-    private modelosService: ModelosService,
+    private modelosService: ModelosService
   ) {}
 
   closeModal() {
     this.activeModal.close();
   }
 
-
   detallar(auto: Auto) {
     this.auto = auto;
   }
 
-
   editar(url: string) {
     this.autosService
-    .putAuto(url, this.auto)
-    .subscribe((response) => (this.auto = response));
+      .putAuto(url, this.auto)
+      .subscribe((response) => (this.auto = response));
     console.log(this.auto);
   }
 
-
-  obtenerColores(){
+  obtenerColores() {
     this.coloresService
-    .getColores()
-    .subscribe((response) => (this.colores = response));
+      .getColores()
+      .subscribe((response) => (this.colores = response));
   }
 
-  obtenerModelos(){
+  obtenerModelos() {
     this.modelosService
-    .getModelos()
-    .subscribe((response) => (this.modelos = response));
+      .getModelos()
+      .subscribe((response) => (this.modelos = response));
   }
 
   onClickSubmit(data: any) {
     this.auto.patente = data.patente;
     this.auto.color_pk = data.color_pk;
     this.auto.modelo_pk = data.modelo_pk;
-    console.log(this.auto)
-    this.autosService
-    .putAuto(this.auto.url!, this.auto)
-    .subscribe(
+    console.log(this.auto);
+    this.autosService.putAuto(this.auto.url!, this.auto).subscribe(
       (response) => this.tinyAlert('Auto modificado.'),
-      (err) => this.tinyAlert('Error.'))
-    this.closeModal()
+      (err) => this.tinyAlert('Error.')
+    );
+    this.closeModal();
   }
 
   tinyAlert(msg: string) {
-    Swal.fire(msg)
+    Swal.fire(msg);
   }
-
 
   ngOnInit(): void {
     this.obtenerColores();
@@ -88,7 +81,6 @@ export class AutoEditModalComponent implements OnInit {
       patente: new FormControl(this.auto.patente),
       color_pk: new FormControl(this.auto.color_pk),
       modelo_pk: new FormControl(this.auto.modelo_pk),
-   });
+    });
   }
 }
-

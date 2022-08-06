@@ -9,8 +9,8 @@ class MarcaSerializer(serializers.ModelSerializer):
         view_name="marcas-detail", lookup_field="pk", read_only=True
     )
 
-    modelos = serializers.HyperlinkedRelatedField(
-        many=True, read_only=True, view_name="modelos-detail"
+    modelos = serializers.StringRelatedField(
+        many=True, read_only=True
     )
 
     class Meta:

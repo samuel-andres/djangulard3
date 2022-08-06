@@ -1,10 +1,9 @@
 <div class="modal-header">
-    <h5 class="modal-title" id="exampleModalLabel">Editar auto</h5>
+  <h5 class="modal-title" id="exampleModalLabel">Editar auto</h5>
 </div>
 
-
 <div class="modal-body">
-<form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)">
+  <form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)">
     <div class="form-group">
       <label for="patente_id">Patente: </label>
       <input
@@ -23,32 +22,29 @@
         name="modelo_pk"
         formControlName="modelo_pk"
       >
-      <option 
-        *ngFor="let modelo of modelos"
-        value="{{ modelo.id }}"
-        >
+        <option *ngFor="let modelo of modelos" value="{{ modelo.id }}">
           {{ modelo.marca }} {{ modelo.nombre }}
-      </option>
-    </select>
+        </option>
+      </select>
     </div>
     <div class="form-group">
       <label for="marca_id">Color: </label>
-      <select id="marca_id" 
-        type="text" 
+      <select
+        id="marca_id"
+        type="text"
         class="form-control"
         name="color_pk"
         formControlName="color_pk"
-        >
-        <option
-          *ngFor="let color of colores"
-          value="{{ color.id }}"
-          >
-            {{color.nombre}}
+      >
+        <option *ngFor="let color of colores" value="{{ color.id }}">
+          {{ color.nombre }}
         </option>
       </select>
     </div>
     <div class="text-center">
-      <button type="submit" class="btn btn-dark btn-lg btn-block mt-4 mb-0">Editar auto</button>
+      <button type="submit" class="btn btn-dark btn-lg btn-block mt-4 mb-0">
+        Editar auto
+      </button>
     </div>
   </form>
 </div>

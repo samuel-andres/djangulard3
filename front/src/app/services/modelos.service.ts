@@ -4,7 +4,7 @@ import { Modelo } from '../models/Modelo';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ModelosService {
   API_URI = 'http://127.0.0.1:8000/api';
@@ -19,7 +19,7 @@ export class ModelosService {
     return this.http.get<Modelo>(url);
   }
 
-  deleteModelo(url: string){
+  deleteModelo(url: string) {
     return this.http.delete(url);
   }
 
@@ -27,8 +27,7 @@ export class ModelosService {
     return this.http.put<Modelo>(url, updatedModelo);
   }
 
-  postModelo(modelo: Modelo){
-    return this.http.post(`${this.API_URI}/modelos/`, modelo)
+  postModelo(modelo: Modelo) {
+    return this.http.post(`${this.API_URI}/modelos/`, modelo);
   }
-
 }

@@ -6,30 +6,26 @@ import { ModelosService } from 'src/app/services/modelos.service';
 @Component({
   selector: 'app-modelos-modal',
   templateUrl: './modelos-modal.component.html',
-  styleUrls: ['./modelos-modal.component.css']
+  styleUrls: ['./modelos-modal.component.css'],
 })
 export class ModelosModalComponent implements OnInit {
-
   modelo: Modelo = {};
   @Input() public url: any;
 
   constructor(
     private activeModal: NgbActiveModal,
-    private modelosService: ModelosService,
-  ) { }
+    private modelosService: ModelosService
+  ) {}
 
-    closeModal(){
-      this.activeModal.close();
-    }
-
-    detallar(url: string) {
-      this.modelosService
-      .getModelo(url)
-      .subscribe((response) => (this.modelo = response));
-    }
-
-
-  ngOnInit(): void {
+  closeModal() {
+    this.activeModal.close();
   }
 
+  detallar(url: string) {
+    this.modelosService
+      .getModelo(url)
+      .subscribe((response) => (this.modelo = response));
+  }
+
+  ngOnInit(): void {}
 }

@@ -1,39 +1,43 @@
 <table class="table table-hover">
-    <thead>
-      <tr>
-        <th scope="col">Nombre</th>
-        <th scope="col">Marca</th>
-        <th scope="col">Autos</th>
-        <th scope="col">Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let modelo of modelos| slice: (page-1) * pageSize : page * pageSize" class="">
-        <th scope="row">
-          <button class="btn btn-dark" (click)="openModal(modelo.url!)">
-            {{ modelo.nombre }}
-          </button>
-        </th>
-        <td>{{ modelo.marca }}</td>
-        <td >{{ modelo.autos!.length }}</td>
-        <td>
-          <button class="btn btn-dark" (click)="eliminar(modelo.url!)">
-            <fa-icon [icon]="faTrashCan"></fa-icon>
-          </button>
-          <button class="btn btn-dark" (click)="editar(modelo)">
-            <fa-icon [icon]="faPenToSquare"></fa-icon>
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  
-  <ngb-pagination
-    [(page)]="page"
-    [pageSize]="pageSize"
-    [collectionSize]="modelos.length"
-    [maxSize]="maxSize"
-    class="d-flex justify-content-center mt-4"
+  <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Autos</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="
+        let modelo of modelos | slice: (page - 1) * pageSize:page * pageSize
+      "
+      class=""
     >
-  </ngb-pagination>
-  
+      <th scope="row">
+        <button class="btn btn-dark" (click)="openModal(modelo.url!)">
+          {{ modelo.nombre }}
+        </button>
+      </th>
+      <td>{{ modelo.marca }}</td>
+      <td>{{ modelo.autos!.length }}</td>
+      <td>
+        <button class="btn btn-dark" (click)="eliminar(modelo.url!)">
+          <fa-icon [icon]="faTrashCan"></fa-icon>
+        </button>
+        <button class="btn btn-dark" (click)="editar(modelo)">
+          <fa-icon [icon]="faPenToSquare"></fa-icon>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<ngb-pagination
+  [(page)]="page"
+  [pageSize]="pageSize"
+  [collectionSize]="modelos.length"
+  [maxSize]="maxSize"
+  class="d-flex justify-content-center mt-4"
+>
+</ngb-pagination>

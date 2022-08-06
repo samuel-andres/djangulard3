@@ -27,6 +27,7 @@
     "@popperjs/core": "^2.10.2",
     "bootstrap": "^5.2.0",
     "rxjs": "~7.5.0",
+    "string-to-color": "^2.2.2",
     "sweetalert2": "^11.4.25",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

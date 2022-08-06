@@ -18,6 +18,14 @@ import { ModelosListComponent } from './components/modelos-list/modelos-list.com
 import { ModelosFormComponent } from './components/modelos-form/modelos-form.component';
 import { ModelosModalComponent } from './components/modelos-modal/modelos-modal.component';
 import { ModelosEditModalComponent } from './components/modelos-edit-modal/modelos-edit-modal.component';
+import { MarcasListComponent } from './components/marcas-list/marcas-list.component';
+import { MarcaModalComponent } from './components/marca-modal/marca-modal.component';
+import { MarcaEditModalComponent } from './components/marca-edit-modal/marca-edit-modal.component';
+import { MarcasFormComponent } from './components/marcas-form/marcas-form.component';
+import { ColoresListComponent } from './components/colores-list/colores-list.component';
+import { ColoresFormComponent } from './components/colores-form/colores-form.component';
+import { ColorModalComponent } from './components/color-modal/color-modal.component';
+import { ColorEditModalComponent } from './components/color-edit-modal/color-edit-modal.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +39,14 @@ import { ModelosEditModalComponent } from './components/modelos-edit-modal/model
     ModelosFormComponent,
     ModelosModalComponent,
     ModelosEditModalComponent,
+    MarcasListComponent,
+    MarcaModalComponent,
+    MarcaEditModalComponent,
+    MarcasFormComponent,
+    ColoresListComponent,
+    ColoresFormComponent,
+    ColorModalComponent,
+    ColorEditModalComponent,
   ],
   imports: [
     BrowserModule,

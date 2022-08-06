@@ -1,0 +1,41 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Modelos</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="
+        let marca of marcas | slice: (page - 1) * pageSize:page * pageSize
+      "
+      class=""
+    >
+      <th scope="row">
+        <button class="btn btn-dark" (click)="openModal(marca.url!)">
+          {{ marca.nombre }}
+        </button>
+      </th>
+      <td>{{ marca.modelos!.length }}</td>
+      <td>
+        <button class="btn btn-dark" (click)="eliminar(marca.url!)">
+          <fa-icon [icon]="faTrashCan"></fa-icon>
+        </button>
+        <button class="btn btn-dark" (click)="editar(marca)">
+          <fa-icon [icon]="faPenToSquare"></fa-icon>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<ngb-pagination
+  [(page)]="page"
+  [pageSize]="pageSize"
+  [collectionSize]="marcas.length"
+  [maxSize]="maxSize"
+  class="d-flex justify-content-center mt-4"
+>
+</ngb-pagination>

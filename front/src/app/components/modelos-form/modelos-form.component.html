@@ -1,33 +1,32 @@
 <form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)">
-    <div class="form-group">
-      <label for="patente_id">Nombre: </label>
-      <input
-        placeholder="p. ej: Mondeo"
-        id="nombre_id"
-        type="text"
-        formControlName="nombre"
-        class="form-control"
-      />
-    </div>
-    <div class="form-group">
-      <label for="marca_id">Marca: </label>
-      <select
-        id="marca_id"
-        type="text"
-        class="form-control"
-        name="marca_pk"
-        formControlName="marca_pk"
-      >
+  <div class="form-group">
+    <label for="patente_id">Nombre: </label>
+    <input
+      placeholder="p. ej: Mondeo"
+      id="nombre_id"
+      type="text"
+      formControlName="nombre"
+      class="form-control"
+    />
+  </div>
+  <div class="form-group">
+    <label for="marca_id">Marca: </label>
+    <select
+      id="marca_id"
+      type="text"
+      class="form-control"
+      name="marca_pk"
+      formControlName="marca_pk"
+    >
       <option value="" disabled selected hidden>Seleccione una marca</option>
-      <option 
-        *ngFor="let marca of marcas"
-        value="{{ marca.id }}"
-        >
-          {{ marca.nombre }}
+      <option *ngFor="let marca of marcas" value="{{ marca.id }}">
+        {{ marca.nombre }}
       </option>
     </select>
-    </div>
-    <div class="text-center">
-      <button type="submit" class="btn btn-dark btn-lg btn-block mt-4 mb-0">Registrar nuevo modelo en la base de datos</button>
-    </div>
-  </form>
+  </div>
+  <div class="text-center">
+    <button type="submit" class="btn btn-dark btn-lg btn-block mt-4 mb-0">
+      Registrar nuevo modelo en la base de datos
+    </button>
+  </div>
+</form>
