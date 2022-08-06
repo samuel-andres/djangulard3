@@ -16,6 +16,10 @@ export class AutosListComponent implements OnInit {
   autos: Auto[] = [];
   faTrashCan = faTrashCan;
   faPenToSquare = faPenToSquare;
+  public page = 1;
+  public pageSize = 5;
+  public maxSize = 5;
+
 
   constructor(
     private autosService: AutosService,
@@ -36,7 +40,7 @@ export class AutosListComponent implements OnInit {
     const modalRef = this.modalService.open(AutoEditModalComponent);
     modalRef.componentInstance.detallar(auto);
     modalRef.closed.subscribe(() => {
-      this.listar()
+      this.listar();
     })
   }
 

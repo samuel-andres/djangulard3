@@ -8,7 +8,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let auto of autos" class="">
+    <tr *ngFor="let auto of autos| slice: (page-1) * pageSize : page * pageSize" class="">
       <th scope="row">
         <button class="btn btn-dark" (click)="openModal(auto.url!)">
           {{ auto.patente }}
@@ -27,3 +27,12 @@
     </tr>
   </tbody>
 </table>
+
+<ngb-pagination
+  [(page)]="page"
+  [pageSize]="pageSize"
+  [collectionSize]="autos.length"
+  [maxSize]="maxSize"
+  class="d-flex justify-content-center mt-4"
+  >
+</ngb-pagination>

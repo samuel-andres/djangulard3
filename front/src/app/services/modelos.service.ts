@@ -14,4 +14,21 @@ export class ModelosService {
   getModelos(): Observable<Modelo[]> {
     return this.http.get<Modelo[]>(this.API_URI + '/modelos');
   }
+
+  getModelo(url: string): Observable<Modelo> {
+    return this.http.get<Modelo>(url);
+  }
+
+  deleteModelo(url: string){
+    return this.http.delete(url);
+  }
+
+  putModelo(url: string, updatedModelo: Modelo): Observable<Modelo> {
+    return this.http.put<Modelo>(url, updatedModelo);
+  }
+
+  postModelo(modelo: Modelo){
+    return this.http.post(`${this.API_URI}/modelos/`, modelo)
+  }
+
 }

@@ -16,6 +16,7 @@ class MarcaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Marca
         fields = [
+            'id',
             "url",
             "nombre",
             "modelos",
@@ -28,10 +29,10 @@ class ModeloSerializer(serializers.ModelSerializer):
         view_name="modelos-detail", lookup_field="pk", read_only=True
     )
 
-    autos = serializers.HyperlinkedRelatedField(
+    autos = serializers.StringRelatedField(
         many=True,
         read_only=True,
-        view_name="autos-detail",
+        # view_name="autos-detail",
     )
 
     marca = serializers.StringRelatedField(
@@ -39,8 +40,7 @@ class ModeloSerializer(serializers.ModelSerializer):
     )
 
     marca_pk = serializers.PrimaryKeyRelatedField(
-        queryset=Marca.objects.all(), source="marca", write_only=True
-    )
+        queryset=Marca.objects.all(), source="marca")
 
     class Meta:
         model = Modelo
@@ -52,6 +52,7 @@ class ModeloSerializer(serializers.ModelSerializer):
             "autos",
             "marca_pk",
         ]
+
 
 
 class ColorSerializer(serializers.ModelSerializer):

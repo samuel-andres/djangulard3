@@ -28,6 +28,6 @@ export class AutosService {
   }
 
   putAuto(url: string, updatedAuto: Auto): Observable<Auto> {
-    return this.http.put(url, updatedAuto);
+    return this.http.put<Auto>(url, updatedAuto);
   }
 }

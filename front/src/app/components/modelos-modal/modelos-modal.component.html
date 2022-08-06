@@ -1,0 +1,22 @@
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">Detalle modelo</h5>
+</div>
+<div class="modal-body text-center">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <strong>Nombre:</strong> {{ modelo.nombre }}
+    </li>
+    <li class="list-group-item"><strong>Marca:</strong> {{ modelo.marca }}</li>
+    <li class="list-group-item"><strong>Autos:</strong>
+      <ul class="list-group">
+        <li *ngFor="let auto of modelo.autos; let i = index" class="list-group-item"><strong>#{{i+1}}:</strong>
+          {{ auto }}</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal()">
+    Cerrar
+  </button>
+</div>

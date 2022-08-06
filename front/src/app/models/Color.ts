@@ -1,6 +1,6 @@
 export interface Color {
-    url: string;
-    nombre: string;
-    id: string;
+    url?: string;
+    nombre?: string;
+    id?: string;
   }
   

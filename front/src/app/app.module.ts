@@ -14,6 +14,10 @@ import { AutoModalComponent } from './components/auto-modal/auto-modal.component
 
 import { AutosService } from './services/autos.service';
 import { AutoEditModalComponent } from './components/auto-edit-modal/auto-edit-modal.component';
+import { ModelosListComponent } from './components/modelos-list/modelos-list.component';
+import { ModelosFormComponent } from './components/modelos-form/modelos-form.component';
+import { ModelosModalComponent } from './components/modelos-modal/modelos-modal.component';
+import { ModelosEditModalComponent } from './components/modelos-edit-modal/modelos-edit-modal.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +27,10 @@ import { AutoEditModalComponent } from './components/auto-edit-modal/auto-edit-m
     AutosListComponent,
     AutoModalComponent,
     AutoEditModalComponent,
+    ModelosListComponent,
+    ModelosFormComponent,
+    ModelosModalComponent,
+    ModelosEditModalComponent,
   ],
   imports: [
     BrowserModule,

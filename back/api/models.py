@@ -32,7 +32,7 @@ class Color(models.Model):
 class Auto(models.Model):
     patente = CaseInsensitiveUppercasedCharField(max_length=9, unique=True)
     modelo = models.ForeignKey(
-        Modelo, on_delete=models.SET_NULL, null=True, related_name="autos"
+        Modelo, on_delete=models.CASCADE, null=True, related_name="autos"
     )
     color = models.ForeignKey(Color, on_delete=models.SET_NULL, null=True)
 
