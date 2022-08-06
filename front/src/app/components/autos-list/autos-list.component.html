@@ -1,0 +1,29 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Patente</th>
+      <th scope="col">Modelo</th>
+      <th scope="col">Color</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let auto of autos" class="">
+      <th scope="row">
+        <button class="btn btn-dark" (click)="openModal(auto.url!)">
+          {{ auto.patente }}
+        </button>
+      </th>
+      <td>{{ auto.modelo }}</td>
+      <td>{{ auto.color }}</td>
+      <td>
+        <button class="btn btn-dark" (click)="eliminar(auto.url!)">
+          <fa-icon [icon]="faTrashCan"></fa-icon>
+        </button>
+        <button class="btn btn-dark" (click)="editar(auto)">
+          <fa-icon [icon]="faPenToSquare"></fa-icon>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

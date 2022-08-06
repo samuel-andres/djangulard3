@@ -1,0 +1,13 @@
+.nav-bordera {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.nav-borderb {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.dropdown-item:active {
+  background-color: rgb(35, 35, 35);
+}
