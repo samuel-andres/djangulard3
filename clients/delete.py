@@ -8,7 +8,7 @@ pk = input("pk>")
 if pk:
     pk = pk + "/"
 
-endpoint = f"http://localhost:8000/api/autos/delete/{pk}"
+endpoint = f"http://localhost:8000/api/autos/{pk}"
 
 confirm = input(f"--Está seguro que desea eliminar el auto con pk = {pk[:-1]}? Y/n")
 

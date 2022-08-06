@@ -9,7 +9,7 @@ if pk:
     pk = pk + "/"
 if not pk:
     quit()
-endpoint = f"http://localhost:8000/api/autos/update/{pk}"
+endpoint = f"http://localhost:8000/api/autos/{pk}"
 
 print(endpoint)
 

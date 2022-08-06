@@ -1,4 +1,5 @@
 class CaseInsensitiveCapitalizedMixin:
+    '''Mixin que capitaliza los strings'''
     def get_prep_value(self, value):
         return str(value).capitalize()
 
@@ -10,6 +11,7 @@ class CaseInsensitiveCapitalizedMixin:
 
 
 class CaseInsensitiveUppercasedMixin:
+    ''' Mixin que pasa los strings a mayúsculas'''
     def get_prep_value(self, value):
         return str(value).upper()
 

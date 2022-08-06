@@ -8,7 +8,7 @@ pk = input("--ENTER para obtener la lista de todos los autos\npk>")
 if pk:
     pk = pk + "/"
 
-endpoint = f"http://localhost:8000/api/autos/read/{pk}"
+endpoint = f"http://localhost:8000/api/autos/{pk}"
 
 print(f"--Obteniendo datos de {endpoint}")
 

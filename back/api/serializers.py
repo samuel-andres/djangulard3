@@ -5,6 +5,8 @@ from .validators import validate_es_una_patente, validate_unique_field_autos
 
 
 class MarcaSerializer(serializers.ModelSerializer):
+    ''' Serializer del modelo marca que serializa los datos en id, url, nombre y un array de modelos
+    con su representación según el dunder method __str__'''
     url = serializers.HyperlinkedIdentityField(
         view_name="marcas-detail", lookup_field="pk", read_only=True
     )
@@ -22,6 +24,9 @@ class MarcaSerializer(serializers.ModelSerializer):
 
 
 class ModeloSerializer(serializers.ModelSerializer):
+    ''' Serializer del modelo "modelo" (modelo de auto)" que serializa los datos del mismo según
+    id, url, nombre, marca(__str__), array de autos y un campo marca_pk que facilita las implementaciones
+    de detalle/actualización'''
 
     url = serializers.HyperlinkedIdentityField(
         view_name="modelos-detail", lookup_field="pk", read_only=True
@@ -30,7 +35,6 @@ class ModeloSerializer(serializers.ModelSerializer):
     autos = serializers.StringRelatedField(
         many=True,
         read_only=True,
-        # view_name="autos-detail",
     )
 
     marca = serializers.StringRelatedField(
@@ -54,6 +58,9 @@ class ModeloSerializer(serializers.ModelSerializer):
 
 
 class ColorSerializer(serializers.ModelSerializer):
+    ''' Serializer del modelo "color" que serializa los datos del mismo según
+    id, url y nombre. En este caso no utilicé relaciones (reverse lookups) pq no me pareció relevante 
+    navegar desde colores hacia autos'''
     url = serializers.HyperlinkedIdentityField(
         view_name="colores-detail", lookup_field="pk", read_only=True
     )
@@ -68,6 +75,8 @@ class ColorSerializer(serializers.ModelSerializer):
 
 
 class AutoSerializer(serializers.ModelSerializer):
+    ''' Serializer del modelo auto que serializa el url y las relaciones con representaciones str
+    y pk '''
     url = serializers.HyperlinkedIdentityField(
         view_name="autos-detail", lookup_field="pk", read_only=True
     )
@@ -77,10 +86,6 @@ class AutoSerializer(serializers.ModelSerializer):
             validate_unique_field_autos,
         ]
     )
-
-    # color_pk = serializers.PrimaryKeyRelatedField(
-    #     queryset=Color.objects.all(), source="color", write_only=True
-    # )
 
     color_pk = serializers.PrimaryKeyRelatedField(
         queryset=Color.objects.all(), source="color"
@@ -102,10 +107,9 @@ class AutoSerializer(serializers.ModelSerializer):
         model = Auto
         fields = [
             "url",
-            "patente",  # read and write
+            "patente",  
             "modelo",
             "color",
-            # write only
             "color_pk",
             "modelo_pk",
         ]

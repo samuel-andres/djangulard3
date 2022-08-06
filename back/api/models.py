@@ -1,6 +1,9 @@
 from django.db import models
 from django.urls import reverse
 
+# se importan los campos custom que sirven para validar y guardar los datos en el caso de los "nombres" 
+# capitalizados, y en el caso de las patentes con mayúsculas, además también agregan la funcionalidad de ser
+# case insensitive que por defecto no viene en ningún field/validador de django
 from .fields import (
     CaseInsensitiveCapitalizedCharField,
     CaseInsensitiveUppercasedCharField,
