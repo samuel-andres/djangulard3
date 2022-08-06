@@ -1,8 +1,12 @@
 from rest_framework import viewsets
 
 from .models import Auto, Color, Marca, Modelo
-from .serializers import (AutoSerializer, ColorSerializer, MarcaSerializer,
-                          ModeloSerializer)
+from .serializers import (
+    AutoSerializer,
+    ColorSerializer,
+    MarcaSerializer,
+    ModeloSerializer,
+)
 
 
 class AutoViewSet(viewsets.ModelViewSet):

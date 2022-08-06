@@ -1,7 +1,6 @@
 from django.db.models import CharField
 
-from .mixins import (CaseInsensitiveCapitalizedMixin,
-                     CaseInsensitiveUppercasedMixin)
+from .mixins import CaseInsensitiveCapitalizedMixin, CaseInsensitiveUppercasedMixin
 
 
 class CaseInsensitiveCapitalizedCharField(CaseInsensitiveCapitalizedMixin, CharField):

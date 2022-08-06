@@ -1,8 +1,10 @@
 from django.db import models
 from django.urls import reverse
 
-from .fields import (CaseInsensitiveCapitalizedCharField,
-                     CaseInsensitiveUppercasedCharField)
+from .fields import (
+    CaseInsensitiveCapitalizedCharField,
+    CaseInsensitiveUppercasedCharField,
+)
 
 
 class Marca(models.Model):
