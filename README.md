@@ -2,7 +2,7 @@
 
 ## Tecnologías utilizadas:
 
-- Django con DRF para crear la RESTfull API
+- Django con DRF para crear la RESTful API
 - Postgres para la base de datos
 - Angular para el front
 
